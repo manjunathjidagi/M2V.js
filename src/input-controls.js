@@ -1,9 +1,13 @@
 // --------------- Libraries ------------------------
 
-function camelize(str) {
+function m2v_camelcase(str){
 	return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function(word, index) {
 		return index === 0 ? word.toLowerCase() : word.toUpperCase();
 	}).replace(/\s+/g, '');
+}
+
+function m2v_capitalize(str){
+	return str.toUpperCase()
 }
 
 // --------------- Libraries Ends -------------------
@@ -31,9 +35,9 @@ $(document).on('keypress', '.m2v-alphanum', function(e){
 });
 
 $(document).on('keyup', '.m2v-capitalize', function(){
-	$(this).val($(this).val().toUpperCase());
+	$(this).val(m2v_capitalize($(this).val()));
 });
 
 $(document).on('focusout', '.m2v-camelcase', function(){
-	$(this).val(camelize($(this).val()));
+	$(this).val(m2v_camelcase($(this).val()));
 })
