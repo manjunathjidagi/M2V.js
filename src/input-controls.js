@@ -28,3 +28,7 @@ $(document).on('keypress', '.m2v-alphanum', function(e){
 $(document).on('keyup', '.m2v-capitalize', function(){
 	$(this).val($(this).val().toUpperCase());
 });
+
+$(document).on('keyup', '.m2v-camelcase', function(){
+	
+})
