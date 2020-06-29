@@ -1,11 +1,16 @@
-// var script = document.createElement('script');
-// script.src = 'https://code.jquery.com/jquery-3.4.1.min.js';
-// script.type = 'text/javascript';
-// document.getElementsByTagName('head')[0].appendChild(script);
+// --------------- Libraries ------------------------
+
+function camelize(str) {
+	return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function(word, index) {
+		return index === 0 ? word.toLowerCase() : word.toUpperCase();
+	}).replace(/\s+/g, '');
+}
+
+// --------------- Libraries Ends -------------------
 
 $(document).on('keypress', '.m2v-number', function(e){
 
-    //if the letter is not digit don't type anything
+	//if the letter is not digit don't type anything
 	if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
 		return false;
 	}
@@ -29,6 +34,6 @@ $(document).on('keyup', '.m2v-capitalize', function(){
 	$(this).val($(this).val().toUpperCase());
 });
 
-$(document).on('keyup', '.m2v-camelcase', function(){
-	
+$(document).on('focusout', '.m2v-camelcase', function(){
+	$(this).val(camelize($(this).val()));
 })
